@@ -177,6 +177,7 @@ body,
 
 .rules-container {
   text-align: right;
+  cursor: pointer;
 }
 
 .rules {
@@ -196,4 +197,54 @@ body,
 .attribution a:link,
 .attribution a:visited {
   color: skyblue;
+}
+
+.rules-disp {
+  display: none;
+}
+
+.rules-disp-container {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rule-context {
+  width: 420px;
+  height: 420px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  padding: 1em;
+}
+
+.rules-disp-container .rules-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.rules-disp-container .rules-top .text {
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+.rules-disp-container .rules-top .close:hover {
+  cursor: pointer;
+}
+
+.rules-disp-container .rules-body {
+  flex-grow: 1;
+  background-image: url("images/image-rules.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
 }

@@ -57,6 +57,20 @@
       >. Coded by <a href="https://github.com/junglesub">junglesub</a>.
     </div>
 
+    <div class="rules-disp">
+      <div class="rules-disp-container">
+        <div class="rule-context">
+          <div class="rules-top">
+            <div class="text">RULES</div>
+            <div class="close">
+              <img src="images/icon-close.svg" alt="Close Button" />
+            </div>
+          </div>
+          <div class="rules-body"></div>
+        </div>
+      </div>
+    </div>
+
     <script>
       const options = {
         scissors: 1,
@@ -156,6 +170,13 @@
       $(document).ready(() => {
         // When document first loads, load default body
         changeToHome();
+
+        $(".rules-container").click(() => {
+          $(".rules-disp").fadeIn();
+        });
+        $(".rules-disp-container .rules-top .close").click(() => {
+          $(".rules-disp").fadeOut();
+        });
       });
     </script>
   </body>
