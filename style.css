@@ -1,0 +1,20 @@
+html {
+  min-height: 100%;
+  background-image: radial-gradient(
+    /* circle, */ hsl(214, 47%, 23%),
+    hsl(237, 49%, 15%)
+  );
+}
+
+.attribution {
+  color: white;
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+.attribution a:link,
+.attribution a:visited {
+  color: skyblue;
+}
