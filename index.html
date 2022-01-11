@@ -93,7 +93,14 @@
           $(".player .button-container").addClass(userChoice);
           $(".house .button-container").addClass(computerChoice);
           $(".winlosemsg").text(winnerDecide().msg);
-          if (winnerDecide().code === 1) updateScore(++score);
+          if (winnerDecide().code === 1) {
+            // User won
+            updateScore(++score);
+            $(".house .winner-grad").hide();
+          } else if (winnerDecide().code === -1) {
+            // Computer won
+            $(".player .winner-grad").hide();
+          }
           console.log("Picked", {
             userChoice,
             computerChoice,
