@@ -1,0 +1,60 @@
+.ingame-container,
+.ingame-container * {
+  border: 1px solid grey;
+}
+
+.ingame-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ingame {
+  width: 600px;
+  height: 230px;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-around;
+}
+
+.ingame .button-container {
+  width: 120px;
+  height: 120px;
+}
+
+.col-move {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.col-move .message {
+  font-weight: 600;
+  text-align: center;
+}
+
+.system-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.winlosemsg {
+  font-weight: 700;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+.playagainbtn {
+  background-color: white;
+  color: hsl(229, 64%, 46%);
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 9px;
+  padding: 5px 1em;
+  border-radius: 7px;
+}
+
+.playagainbtn:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style_ingame.css" />
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
+
+    <!-- Score Rules You Picked The House Picked You Win You Lose Play Again -->
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
+        <div class="title">
+          ROCK<br />
+          PAPER<br />
+          SCISSORS<br />
+        </div>
+        <div class="score">
+          <div class="score-heading">SCORE</div>
+          <div class="score-number">13</div>
+        </div>
+      </div>
+      <div class="ingame-container">
+        <div class="ingame">
+          <div class="player col-move">
+            <div class="message">YOU PICKED</div>
+            <div class="show-move">
+              <div class="rock button-container">
+                <div class="gamebutton"></div>
+              </div>
+            </div>
+          </div>
+          <div class="system-message">
+            <div class="winlosemsg">YOU WIN</div>
+            <div class="playagainbtn">PLAY AGAIN</div>
+          </div>
+          <div class="house col-move">
+            <div class="message">THE HOUSE PICKED</div>
+            <div class="show-move">
+              <div class="paper button-container">
+                <div class="button-border">
+                  <div class="gamebutton"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="rock button-container">
+          <div class="gamebutton"></div>
+        </div>
+        <div class="paper button-container">
+          <div class="button-border">
+            <div class="gamebutton"></div>
+          </div>
+        </div>
+        <div class="scissors button-container">
+          <div class="button-border">
+            <div class="gamebutton"></div>
+          </div>
+        </div> -->
+      </div>
+      <div class="rules-container">
+        <div class="rules">RULES</div>
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/junglesub">junglesub</a>.
+    </div>
+  </body>
+</html>
