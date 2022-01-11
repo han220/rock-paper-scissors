@@ -12,6 +12,7 @@
       href="./images/favicon-32x32.png"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style_ingame.css" />
     <title>Frontend Mentor | Rock, Paper, Scissors</title>
 
     <!-- Score Rules You Picked The House Picked You Win You Lose Play Again -->
@@ -26,6 +27,8 @@
         color: hsl(228, 45%, 44%);
       }
     </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -37,24 +40,12 @@
         </div>
         <div class="score">
           <div class="score-heading">SCORE</div>
-          <div class="score-number">13</div>
+          <div class="score-number">0</div>
         </div>
       </div>
-      <div class="game">
-        <div class="rock button-container">
-          <div class="gamebutton"></div>
-        </div>
-        <div class="paper button-container">
-          <div class="button-border">
-            <div class="gamebutton"></div>
-          </div>
-        </div>
-        <div class="scissors button-container">
-          <div class="button-border">
-            <div class="gamebutton"></div>
-          </div>
-        </div>
-      </div>
+
+      <div class="nothing">Loading...</div>
+
       <div class="rules-container">
         <div class="rules">RULES</div>
       </div>
@@ -65,5 +56,100 @@
         >Frontend Mentor</a
       >. Coded by <a href="https://github.com/junglesub">junglesub</a>.
     </div>
+
+    <script>
+      const options = {
+        scissors: 1,
+        rock: 2,
+        paper: 3,
+      };
+      let currentState = "nothing";
+      let userChoice = "";
+      let computerChoice = "";
+      let score = 0;
+
+      function updateScore(newScore) {
+        $(".score-number").text(newScore);
+      }
+
+      function changeToHome() {
+        $.get("./modules/gamehome.htm", (data) => {
+          console.log("Changing to Home from", currentState);
+          $(`.${currentState}`).replaceWith(data);
+          currentState = "game";
+
+          // All related bindings
+          $(".button-container").click(gameButtonPressed);
+        });
+      }
+      function changeToPlay() {
+        $.get("./modules/gameplay.htm", (data) => {
+          console.log("Changing to Play from", currentState);
+          $(`.${currentState}`).replaceWith(data);
+          currentState = "ingame-container";
+
+          // Main Game Logic
+          computerChoice = randomActionGen();
+          $(".player .button-container").addClass(userChoice);
+          $(".house .button-container").addClass(computerChoice);
+          $(".winlosemsg").text(winnerDecide().msg);
+          if (winnerDecide().code === 1) updateScore(++score);
+          console.log("Picked", {
+            userChoice,
+            computerChoice,
+            winner: winnerDecide(),
+          });
+
+          // All related bindings
+
+          $(".playagainbtn").click(() => {
+            console.log("Button pressed", currentState);
+            changeToHome();
+          });
+        });
+      }
+
+      // 참고 https://thrillfighter.tistory.com/448
+      function winnerDecide() {
+        const [user, comp] = [options[userChoice], options[computerChoice]];
+        let differ = comp - user;
+
+        if ((user === 1 && comp === 3) || (user === 3 && comp === 1))
+          differ *= -1;
+
+        if (differ === 0)
+          return {
+            code: 0,
+            msg: "TIE",
+          };
+        else if (differ < 0)
+          return {
+            code: 1,
+            msg: "YOU WIN",
+          };
+        else
+          return {
+            code: -1,
+            msg: "YOU LOSE",
+          };
+      }
+
+      function gameButtonPressed() {
+        console.log("Hi");
+        userChoice = this.className.split(" ")[0];
+        changeToPlay();
+      }
+
+      function randomActionGen() {
+        return Object.keys(options)[
+          Math.floor(Math.random() * Object.keys(options).length)
+        ];
+      }
+
+      $(document).ready(() => {
+        // When document first loads, load default body
+        changeToHome();
+      });
+    </script>
   </body>
 </html>
