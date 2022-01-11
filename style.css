@@ -2,12 +2,22 @@
 
 html {
   font-family: 'Barlow Semi Condensed', sans-serif;
-  min-height: 100%;
+  /* min-height: 100%; */
   background-image: radial-gradient(
     /* circle, */ hsl(214, 47%, 23%),
     hsl(237, 49%, 15%)
   );
   color: white; /* 기본 색상 */
+}
+
+html, body, .container {
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
 .top {
@@ -19,6 +29,7 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 1em;
 }
 
 .top .title {
@@ -55,6 +66,87 @@ html {
   position: absolute;
   text-align: center;
 }
+
+.game {
+  /* background-color: grey; */
+  background-image: url(images/bg-triangle.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-grow: 1;
+  position: relative;
+}
+
+.button-container {
+  width: 120px;
+  height: 120px;
+  /* border: 17px solid black; */
+  
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: red;
+}
+
+.button-container * {
+  height: 100%;
+  width: 100%;
+}
+
+.gamebutton {
+  border-radius: 100%;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+}
+
+
+.rock {
+  transform: translate(-50%, -50%) translate(0, 100px);
+}
+
+.rock.button-container {
+  max-width: 250px;
+  padding: 1rem;
+  /* position: relative; */
+  background: radial-gradient(circle, hsl(349, 71%, 52%), hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  border-radius: 100%;
+  box-shadow: 0px 10px hsl(349, 70%, 36%);
+}
+
+.rock .gamebutton {
+  background-image: url(images/icon-rock.svg);
+}
+.paper {
+  transform: translate(-50%, -50%) translate(-140px, -130px);
+}
+.paper.button-container {
+  max-width: 250px;
+  padding: 1rem;
+  /* position: relative; */
+  background: radial-gradient(circle, hsl(230, 89%, 62%), hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  border-radius: 100%;
+  box-shadow: 0px 10px hsl(230, 89%, 45%);
+}
+.paper .gamebutton {
+  background-image: url(images/icon-paper.svg);
+}
+
+.scissors {
+  transform: translate(-50%, -50%) translate(+140px, -130px);
+}
+.scissors .gamebutton {
+  background-image: url(images/icon-scissors.svg);
+}
+.scissors.button-container {
+  max-width: 250px;
+  padding: 1rem;
+  /* position: relative; */
+  background: radial-gradient(circle,  hsl(39, 89%, 49%),  hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  border-radius: 100%;
+  box-shadow: 0px 10px hsl(40, 84%, 33%);
+}
+
 
 .attribution a:link,
 .attribution a:visited {
