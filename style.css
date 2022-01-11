@@ -90,6 +90,16 @@ body,
   color: red;
 }
 
+.game .button-container {
+  transition: width ease 100ms, height ease 100ms;
+}
+
+.game .button-container:hover {
+  width: 150px;
+  height: 150px;
+  transition: ease 100ms;
+}
+
 .button-container * {
   height: 100%;
   width: 100%;
